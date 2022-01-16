@@ -5,7 +5,9 @@ are likely inefficient and could be improved upon greatly.
 
 I will list the general process of running these scripts to produce the figures in the paper here.
 
-## Step 1: Imaging (CASA_tclean_test.py)
+## Step 1: Image Production
+
+### Step 1a: Imaging (CASA_tclean_test.py)
 - The primary code for imaging the data from measurement sets. To remedy issues with gaps in coverage
 between SMA spectral windows, this script begins by concatenating the individual uvfits files into one .ms file per sideband.
 - Performs continuum subtraction by masking out major CO transitions in cube.
