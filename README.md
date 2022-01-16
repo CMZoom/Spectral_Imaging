@@ -7,7 +7,7 @@ I will list the general process of running these scripts to produce the figures 
 
 ## Step 1: Image Production
 
-### Step 1a: Imaging (CASA_tclean_test.py, https://github.com/CMZoom/Spectral_Imaging/blob/ff1b1caecc1666326ca32a3213d5aab70a68644f/CASA_tclean_test.py)
+### Step 1a: Imaging (CASA_tclean_test.py, https://github.com/CMZoom/Spectral_Imaging/blob/ff1b1caecc1666326ca32a3213d5aab70a68644f/CASA_tclean_test.py?plain=1)
 - The primary code for imaging the data from measurement sets. To remedy issues with gaps in coverage
 between SMA spectral windows, this script begins by concatenating the individual uvfits files into one .ms file per sideband.
 - Performs continuum subtraction by masking out major CO transitions in cube.
