@@ -30,10 +30,42 @@ step makes for the larger cubes.
 in the form [leaf_ID, [intensity], [velocity]].
 
 ### Step 2b: Spectrum Fitting (scouse_fitting.py)
+CURRENT CODE SEEMS TO BE OLD VERSION, NO PANDAS INVOLVED. WILL UPDATE
 - Has two modes; single and full.
   - Single takes a leaf ID and a transition and updates the scouse fitting.
   - Full allows user to fit all spectra for a given transition.
--
+- Uses scousepy to fit all spectra in survey and compile the fit values in a csv file using pandas.
+
+## Step 3: Moment Maps
+
+### Step 3a: Moment Map Production (moment_maps_new.py)
+-Uses binary dilation to produce moment maps
+
+### Step 3b: Moment Map Figures (moment_figures.py)
+- Takes moment maps generated from previous steps and generates complete moment map figures for each transition and region.
+
+## Step 4: Analysis
+
+### Step 4a (DC_CMZoom_fits_analysis.py)
+This is currently an unorganised mess as this developed slowly over the entire analysis of the paper and I didn't start breaking things up until near the end. Currently, it:
+- fixes small issues with data
+- produces latex tables
+- quality control
+- corrects mislabeled peaks (especially the methanol line) NEEDS IMPROVED, CURRENTLY ONLY WORKS WITH PRIOR KNOWLEDGE OF PANDAS INDICES.
+- uses splatalogue to identify peaks that aren't key transition
+- makes all histogram figures in paper
+- makes correlation matrix
+- identifies single velocity for each core
+#### TO-DO:
+  - Split above steps up into individual, uniquely responsible scripts.
+  - Improve data fixing so it requires no prior knowledge and remains consistent (or at least identifies cores that need fixing in comments
+  - Remove extra, unneeded analysis.
+
+### Step 4b (Larsons.py)
+- For each unique core, with mass and radius identified in catalog, calculates alpha parameter.
+
+### Step 4c (pressure.py)
+- For each core, using SF tracers in Perry's paper, redoes alpha parameter analysis with pressure factored in.
 
 TO-DO:
 - clean and comment codes for ease of use
