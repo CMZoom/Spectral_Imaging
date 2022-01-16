@@ -16,22 +16,22 @@ calculate the noise threshold for the full clean.
 - If region is <1000 in (x,y), cleans a full sideband using this 5x this noise threshold. Otherwise, cleans a subcube
 surrounding the key transitions.
 
-### Step 1b: Galactic Projection (beam_fix.py)
+### Step 1b: Galactic Projection ([beam_fix.py](https://github.com/CMZoom/Spectral_Imaging/blob/b11087996ebfe51cbc9fa7ebd79db43aef31b646/beam_fix.py))
 - A number of cubes have issues with varying beamsizes throughout. While not a major concern in most cases, some cubes had
 severa variation. This script reprojects all cubes into galactic coordinates, masks out channels that are at least 30% larger
 than the average, and convolves rest of cube to a uniform beam size.
 
-### Step 1c: Cube Trimming (fits_cubes.py)
+### Step 1c: Cube Trimming ([fits_cubes.py](https://github.com/CMZoom/Spectral_Imaging/blob/b11087996ebfe51cbc9fa7ebd79db43aef31b646/fits_cubes.py))
 - For smaller regions that had entire sidebands imaged, this script produces subcubes of the same transitions as the previous
 step makes for the larger cubes.
 
 ## Step 2: Spectra
 
-### Step 2a: Spectrum Extraction (all_spectra.py)
+### Step 2a: Spectrum Extraction ([all_spectra.py](https://github.com/CMZoom/Spectral_Imaging/blob/b11087996ebfe51cbc9fa7ebd79db43aef31b646/all_spectra.py))
 - For every transition, this script extracts a spectrum for each leaf in the dendrogram catalog and adds it to a fits file
 in the form [leaf_ID, [intensity], [velocity]].
 
-### Step 2b: Spectrum Fitting (scouse_fitting.py)
+### Step 2b: Spectrum Fitting ([scouse_fitting.py](https://github.com/CMZoom/Spectral_Imaging/blob/b11087996ebfe51cbc9fa7ebd79db43aef31b646/scouse_fitting.py))
 CURRENT CODE SEEMS TO BE OLD VERSION, NO PANDAS INVOLVED. WILL UPDATE
 - Has two modes; single and full.
   - Single takes a leaf ID and a transition and updates the scouse fitting.
@@ -40,10 +40,10 @@ CURRENT CODE SEEMS TO BE OLD VERSION, NO PANDAS INVOLVED. WILL UPDATE
 
 ## Step 3: Moment Maps
 
-### Step 3a: Moment Map Production (moment_maps_new.py)
+### Step 3a: Moment Map Production ([moment_maps_new.py](https://github.com/CMZoom/Spectral_Imaging/blob/b11087996ebfe51cbc9fa7ebd79db43aef31b646/moment_maps_new.py))
 -Uses binary dilation to produce moment maps
 
-### Step 3b: Moment Map Figures (moment_figures.py)
+### Step 3b: Moment Map Figures ([moment_figures.py](https://github.com/CMZoom/Spectral_Imaging/blob/b11087996ebfe51cbc9fa7ebd79db43aef31b646/moment_figures.py))
 - Takes moment maps generated from previous steps and generates complete moment map figures for each transition and region.
 
 ## Step 4: Analysis
