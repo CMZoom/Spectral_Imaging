@@ -67,5 +67,7 @@ This is currently an unorganised mess as this developed slowly over the entire a
 ### Step 4c (pressure.py)
 - For each core, using SF tracers in Perry's paper, redoes alpha parameter analysis with pressure factored in.
 
-TO-DO:
+ ## TO-DO:
 - clean and comment codes for ease of use
+- update older codes
+- add moment ratio code
