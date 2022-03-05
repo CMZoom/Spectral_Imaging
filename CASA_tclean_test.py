@@ -33,6 +33,20 @@ def numericalSort(value):
 	parts= numbers.split(value)
 	parts[1::2] = map(int, parts[1::2])
 	return parts
+
+os.chdir(sourcename+'_MIRIAD/')
+#print(glob.glob('*.fits'))
+for infile in sorted(glob.iglob('*.fits'), key=numericalSort):
+	pathway = len('./'+sourcename+'_MIRIAD/')
+	print(infile)
+	t = os.path.splitext(infile)
+	print(t)
+	f = str(t[0])
+	f = f[pathway:]
+	print(f)
+	importuvfits(fitsfile=infile,vis='../'+sourcename+'_CASA/'+infile[:-5]+'.ms')
+#	cvel2(vis=path+'/'+sourcename+'_CASA/'+f+'.cube.ms', outputvis=path+'/'+sourcename+'_CASA/'+f+'.cube.lsrk.ms', mode='frequency', outframe='lsrk')
+
 '''
 for infile in sorted(glob.iglob('./'+sourcename+'_CASA/'+sourcename+'*.fits'), key=numericalSort):
 	pathway = len('./'+sourcename+'_CASA/')
